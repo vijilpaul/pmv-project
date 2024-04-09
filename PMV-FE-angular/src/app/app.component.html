@@ -1,0 +1,17 @@
+<header class="header">
+  <h1>PMV</h1>
+  <div class="profile" *ngIf="currentUser">
+    <button mat-icon-button (click)="onNotification()" *ngIf="currentUser.roles[0] == 'ROLE_ENGINEER'">
+      <mat-icon class="icon">notifications</mat-icon>
+      <span class="badge" *ngIf="badgeCount > 0">{{badgeCount}}</span>
+    </button>
+    <mat-icon (click)="onProfile()">account_circle</mat-icon>
+    <mat-icon (click)="onLogout()">power_settings_new</mat-icon>
+  </div>
+</header>
+<section class="main">
+  <router-outlet></router-outlet>
+</section>
+<footer class="footer">
+  <h1>Footer</h1>
+</footer>

@@ -1,0 +1,112 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+.mdc-snackbar {
+  &.mat-flash-success {
+    background: #198754;
+    color: #fff;
+  }
+
+  &.mat-flash-danger {
+    background: #f44336;
+    color: #fff;
+  }
+
+  &.mat-flash-warn {
+    background: #ffd740;
+    color: #000;
+
+    .mdc-snackbar__label {
+      color: #000;
+    }
+
+    .mat-simple-snackbar-action {
+      color: #000;
+    }
+  }
+
+  .mat-simple-snack-bar-content {
+    font-size: 17px;
+  }
+
+  .mat-simple-snackbar-action {
+    color: #fff;
+  }
+}
+
+.mat-mdc-snack-bar-container.mat-flash .mdc-snackbar__surface {
+  background-color: initial;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  background: none !important;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__label {
+  font-weight: 600 !important;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  height: 100%;
+  min-height: calc(100vh - 140px);
+
+  .side-nav {
+    width: 30%;
+    background: #eee;
+    height: 100%;
+    padding: 2rem;
+    min-height: calc(100vh - 140px);
+
+    ul {
+      li {
+        list-style: none;
+
+        a {
+          padding: 8px 15px;
+          width: 100%;
+          display: inline-block;
+          text-decoration: none;
+          border-bottom: 1px solid #ccc;
+          color: #000;
+
+          &.active {
+            color: #c00;
+          }
+        }
+      }
+    }
+  }
+
+  .main-content {
+    width: 70%;
+    padding: 2rem;
+  }
+}
+
+.align-right {
+  float: right;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-50 {
+  width: 50%;
+  padding: 0.5rem;
+}
+
+.d-block {
+  display: block;
+  clear: both;
+}

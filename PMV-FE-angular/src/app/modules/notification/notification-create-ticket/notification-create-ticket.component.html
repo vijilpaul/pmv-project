@@ -1,0 +1,72 @@
+<section class="car-register">
+  <form [formGroup]="ticketForm" (submit)="onSubmit()">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Create Service Ticket</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="w-50">
+          <mat-label>Plate No</mat-label>
+          <input matInput type="text" formControlName="plateNo">
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Car model</mat-label>
+          <input matInput type="text" formControlName="carModel">
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Manufacturing year</mat-label>
+          <input matInput type="text" formControlName="manufacturingYear">
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Upcoming service date</mat-label>
+          <input matInput type="text" formControlName="upcomingServiceDate">
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Driver information</mat-label>
+          <input matInput type="text" formControlName="driverInformation">
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Last service milage</mat-label>
+          <input matInput type="text" formControlName="lastServiceMilage">
+          <mat-error *ngIf="ticketForm.controls['lastServiceMilage'].hasError('required')">
+            Please enter the Last service milage.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Last service date</mat-label>
+          <input matInput type="text" formControlName="lastServiceDate" [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="ticketForm.controls['lastServiceDate'].hasError('required')">
+            Please enter the Last service date.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Service description</mat-label>
+          <input matInput type="text" formControlName="serviceDescription">
+          <mat-error *ngIf="ticketForm.controls['serviceDescription'].hasError('required')">
+            Please enter the Service description.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Service Cost</mat-label>
+          <input matInput type="text" formControlName="serviceCost">
+          <mat-error *ngIf="ticketForm.controls['serviceCost'].hasError('required')">
+            Please enter the Service Cost.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Service Engineer name</mat-label>
+          <input matInput type="text" formControlName="serviceEngineerName">
+          <mat-error *ngIf="ticketForm.controls['serviceEngineerName'].hasError('required')">
+            Please enter the Service Engineer name.
+          </mat-error>
+        </mat-form-field>
+        <div class="w-100">
+          <button mat-raised-button type="submit" color="primary">Create</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</section>

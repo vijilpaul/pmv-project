@@ -1,0 +1,32 @@
+.common-table-filter {
+  width: 100%;
+  clear: both;
+
+  .mat-mdc-form-field-subscript-wrapper {
+    line-height: 0;
+  }
+
+  .mat-mdc-form-field-bottom-align::before {
+    height: 5px;
+  }
+
+  .close-wrap {
+    position: absolute;
+    right: -10px;
+    cursor: pointer;
+    top: 18px;
+    z-index: 999;
+  }
+}
+
+.action-data {
+  cursor: pointer;
+  display: flex;
+}
+
+.edit-action {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #3f51b5;
+}

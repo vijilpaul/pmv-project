@@ -1,0 +1,6 @@
+<button mat-raised-button color="primary" (click)="onAddNewCar()" class="align-right">Add New Car</button>
+
+<div class="w-100 d-block">
+  <app-common-table [tableColumns]="listColumns" [tableData]="tableData" [actionColumn]="true" [isFilterable]="true" [isPageable]="true" [isEdit]="true"
+    [isDelete]="true" (rowAction)="goToEdit($event)" (deleteAction)="goToDelete($event)"></app-common-table>
+</div>

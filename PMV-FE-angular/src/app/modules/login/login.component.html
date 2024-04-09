@@ -1,0 +1,31 @@
+<section class="login-form">
+  <form [formGroup]="authForm" (ngSubmit)="authForm.valid && login()" novalidate>
+    <mat-card>
+      <mat-card-header>
+        Login
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input type="text" matInput formControlName="username" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input [type]="showPass ? 'text' : 'password'" matInput formControlName="password" />
+          <mat-icon id="show-password" class="pointer" matTooltipPosition="above" matSuffix matTooltip="{{ !showPass ? 'Show' : 'Hide' }}"
+            (click)="showPass = !showPass">
+            {{ showPass ? 'visibility' : 'visibility_off' }}
+          </mat-icon>
+        </mat-form-field>
+
+        <div class="actions">
+          <button id="login-button" mat-raised-button type="submit" color="primary" [disabled]="authForm.touched && !authForm.valid">
+            Login
+          </button>
+        </div>
+        <mat-error class="invalid_login">{{loginError}}</mat-error>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</section>

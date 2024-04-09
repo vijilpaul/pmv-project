@@ -1,0 +1,5 @@
+<h1>Service History</h1>
+<div class="w-100 d-block">
+  <app-common-table [actionColumn]="true" [tableColumns]="listColumns" [tableData]="tableData" [isFilterable]="true" [isPageable]="true" [isEdit]="true"
+    [isDelete]="false" [rowActionIcon]="'chevron_right'" [rowActionText]="'More details'" (rowAction)="goToDetails($event)"></app-common-table>
+</div>

@@ -1,0 +1,42 @@
+<section class="wrapper">
+  <div class="side-nav">
+    <ul>
+      <li *ngIf="userRole == 'ROLE_ADMIN'"><a class="nav-links" [routerLink]="'/car/car-add'" routerLinkActive="active">Add New Car</a></li>
+      <li *ngIf="userRole == 'ROLE_ADMIN'"><a class="nav-links" [routerLink]="'/car/car-list'" routerLinkActive="active">Registered Car List</a></li>
+      <li *ngIf="userRole == 'ROLE_ENGINEER'"><a class="nav-links" [routerLink]="'/notification/notification-list'" routerLinkActive="active">Notification
+          List</a></li>
+      <li *ngIf="userRole == 'ROLE_DRIVER' || userRole == 'ROLE_MANAGER'"><a class="nav-links" [routerLink]="'/service-history'"
+          routerLinkActive="active">{{userRole == 'ROLE_MANAGER' ? 'Vehicle Service Details' : 'Service History'}}</a></li>
+      <li><a class="nav-links" [routerLink]="'/my-profile'" routerLinkActive="active">My profile</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <div class="profile-img">
+      <mat-icon>account_circle</mat-icon>
+    </div>
+    <div class="profile-details">
+      <table>
+        <tr>
+          <th>Name: </th>
+          <td>{{currentUserDetails.username}}</td>
+        </tr>
+        <tr>
+          <th>Email: </th>
+          <td>{{currentUserDetails.email}}</td>
+        </tr>
+        <tr>
+          <th>Role: </th>
+          <td>{{currentUserDetails.roles[0]}}</td>
+        </tr>
+        <tr>
+          <th>Mobile No: </th>
+          <td>{{currentUserDetails.mobileNumber ? currentUserDetails.mobileNumber : 'NA'}}</td>
+        </tr>
+        <tr>
+          <th>Other Information: </th>
+          <td>NA</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>

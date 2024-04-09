@@ -1,0 +1,56 @@
+<mat-card class="mb-3">
+  <mat-card-content>
+    <div class="common-table-filter" *ngIf="isFilterable">
+      <mat-form-field>
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input [(ngModel)]="filterValue">
+        <span class="close-wrap" *ngIf="filterValue" aria-label="Clear" (click)="clearFilter()">
+          <mat-icon>close</mat-icon>
+        </span>
+      </mat-form-field>
+    </div>
+
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort aria-describedby="list">
+        <!-- Dynamic Columns -->
+        <ng-container *ngFor="let column of tableColumns" matColumnDef="{{ column.dataKey }}">
+          <th id="list" mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.name }}</th>
+          <td mat-cell *matCellDef="let row; let i = index;">
+            <ng-container *ngIf="column.dataKey === 'id';then normal else mainRow"></ng-container>
+            <ng-template #normal>
+              {{i+1}}
+            </ng-template>
+            <ng-template #mainRow>
+              <span>{{ column.dataKey === 'upcomingServiceDate' ? (row[column.dataKey] | date:'fullDate') : row[column.dataKey] }}</span>
+            </ng-template>
+          </td>
+        </ng-container>
+
+        <!-- Action Column -->
+        <ng-container *ngIf="actionColumn" matColumnDef="action">
+          <th id="action" mat-header-cell *matHeaderCellDef mat-sort-header class="mat-action">Action</th>
+          <td mat-cell *matCellDef="let row">
+            <div class="action-data">
+              <span *ngIf="isEdit" (click)="goTo(row)" class="edit-action">
+                <span *ngIf="rowActionText">{{rowActionText}} </span>
+                <mat-icon class="action-icon" color="primary">{{rowActionIcon}}</mat-icon>
+              </span>
+              <mat-icon *ngIf="isDelete" (click)="goToDelete(row)" color="warn">delete</mat-icon>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell text-center py-3" colspan="4">No Records</td>
+        </tr>
+      </table>
+
+      <mat-paginator *ngIf="isPageable" aria-label="Select page of users" [ngClass]="{ 'hide-page-size': isDisablePaginationSizes }" [length]="totalRows"
+        [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="handlePageEvent($event)"></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>

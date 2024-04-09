@@ -1,0 +1,43 @@
+<section class="service-details">
+  <div class="w-50 card" *ngIf="currentUserRole != 'ROLE_DRIVER'">
+    <h4>Service Cost</h4>
+    <p>{{serviceDetails.serviceCost}}</p>
+  </div>
+  <div class="w-50 card">
+    <h4>Plate No</h4>
+    <p>{{serviceDetails.plateNo}}</p>
+  </div>
+  <div class="w-50 card">
+    <h4>Car Model</h4>
+    <p>{{serviceDetails.carModel}}</p>
+  </div>
+  <div class="w-50 card">
+    <h4>Manufacturing Year</h4>
+    <p>{{serviceDetails.manufacturingYear}}</p>
+  </div>
+  <div class="w-50 card">
+    <h4>Last Service Milage</h4>
+    <p>{{serviceDetails.lastServiceMilage}}</p>
+  </div>
+  <div class="w-50 card">
+    <h4>Service Description</h4>
+    <p>{{serviceDetails.serviceDescription}}</p>
+  </div>
+  <div class="w-50 card">
+    <h4>Last Service Date</h4>
+    <p>{{serviceDetails.lastServiceDate}}</p>
+  </div>
+  <div class="w-50 card">
+    <h4>Upcoming Service Date</h4>
+    <p>{{serviceDetails.upcomingServiceDate}}</p>
+  </div>
+  <div class="w-50 card">
+    <h4>Driver Information</h4>
+    <p>{{serviceDetails.driverInformation}}</p>
+  </div>
+  <div class="w-50 card">
+    <h4>Service Engineer Name</h4>
+    <p>{{serviceDetails.serviceEngineerName}}</p>
+  </div>
+</section>
+<button mat-raised-button color="primary" (click)="goBack()" class="align-right">Go Back</button>

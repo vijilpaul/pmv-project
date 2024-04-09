@@ -1,0 +1,52 @@
+<section class="car-register">
+  <form [formGroup]="carAddForm" (submit)="onSubmit()">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>New Car Register</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field class="w-50">
+          <mat-label>Plate No</mat-label>
+          <input matInput type="text" formControlName="plateNo">
+          <mat-error *ngIf="carAddForm.controls['plateNo'].hasError('required')">
+            Please enter the Plate No.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Car model</mat-label>
+          <input matInput type="text" formControlName="carModel">
+          <mat-error *ngIf="carAddForm.controls['carModel'].hasError('required')">
+            Please enter the Car model.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Manufacturing year</mat-label>
+          <input matInput type="text" formControlName="manufacturingYear">
+          <mat-error *ngIf="carAddForm.controls['manufacturingYear'].hasError('required')">
+            Please enter the Manufacturing year.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Upcoming service date</mat-label>
+          <input matInput type="text" formControlName="upcomingServiceDate" [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="carAddForm.controls['upcomingServiceDate'].hasError('required')">
+            Please enter the Upcoming service date.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-label>Driver information</mat-label>
+          <input matInput type="text" formControlName="driverInformation">
+          <mat-error *ngIf="carAddForm.controls['driverInformation'].hasError('required')">
+            Please enter the Driver information.
+          </mat-error>
+        </mat-form-field>
+        <div style="clear: both; width: 100%; text-align: center;">
+          <button mat-raised-button type="submit" color="primary">Add</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </form>
+</section>

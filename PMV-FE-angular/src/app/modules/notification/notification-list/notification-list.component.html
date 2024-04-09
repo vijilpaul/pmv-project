@@ -1,0 +1,4 @@
+<div class="w-100 d-block">
+  <app-common-table [actionColumn]="true" [tableColumns]="listColumns" [tableData]="tableData" [isFilterable]="true" [isPageable]="true" [isEdit]="true"
+    [isDelete]="false" [rowActionIcon]="'chevron_right'" [rowActionText]="'Create New Ticket'" (rowAction)="goToCreate($event)"></app-common-table>
+</div>

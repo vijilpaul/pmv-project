@@ -1,0 +1,12 @@
+<section class="wrapper">
+  <div class="side-nav">
+    <ul>
+      <li><a class="nav-links" [routerLink]="'/car/car-add'" routerLinkActive="active">Add New Car</a></li>
+      <li><a class="nav-links" [routerLink]="'/car/car-list'" routerLinkActive="active">Registered Car List</a></li>
+      <li><a class="nav-links" [routerLink]="'/my-profile'" routerLinkActive="active">My profile</a></li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</section>
