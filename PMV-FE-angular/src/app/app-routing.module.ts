@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'car', canActivate: [AuthGuard], loadChildren: () => import('./modules/car/car.module').then(m => m.CarModule) },
   { path: 'notification', canActivate: [AuthGuard], loadChildren: () => import('./modules/notification/notification.module').then(m => m.NotificationModule) },
   { path: 'my-profile', canActivate: [AuthGuard], loadChildren: () => import('./modules/my-profile/my-profile.module').then(m => m.MyProfileModule) },
-  { path: 'service-history', loadChildren: () => import('./modules/service-history/service-history.module').then(m => m.ServiceHistoryModule) }
+  { path: 'service-history', loadChildren: () => import('./modules/service-history/service-history.module').then(m => m.ServiceHistoryModule) },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
 
 @NgModule({

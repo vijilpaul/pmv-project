@@ -25,8 +25,11 @@ export class AppComponent {
       this.currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser') || '') : '';
       this.fetchNotifyCount();
     });
-
   }
+  ngDoCheck(){
+    this.badgeCount = Number(localStorage.getItem('notify-count'));
+  }
+  
   fetchNotifyCount() {
     this.service.get('vehicle/notification-count').subscribe(data => {
       this.badgeCount = data;
