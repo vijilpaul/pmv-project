@@ -21,7 +21,8 @@
               {{i+1}}
             </ng-template>
             <ng-template #mainRow>
-              <span>{{ column.dataKey === 'upcomingServiceDate' ? (row[column.dataKey] | date:'fullDate') : row[column.dataKey] }}</span>
+              <span>{{ column.dataKey === 'upcomingServiceDate' || column.dataKey === 'lastServiceDate' ? (row[column.dataKey] | date:'fullDate') :
+                row[column.dataKey] }}</span>
             </ng-template>
           </td>
         </ng-container>

@@ -23,14 +23,15 @@ export class AppComponent {
   ngOnInit() {
     this.auth.logged.subscribe(data => {
       this.currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser') || '') : '';
+      this.fetchNotifyCount();
     });
-    this.service.get('vehicle/ticket-count').subscribe(data => {
+
+  }
+  fetchNotifyCount() {
+    this.service.get('vehicle/notification-count').subscribe(data => {
       this.badgeCount = data;
       localStorage.setItem('notify-count', data)
     })
-  }
-  ngOnChanges() {
-    this.badgeCount = Number(localStorage.getItem('notify-count')) || 0;
   }
 
   onNotification() {

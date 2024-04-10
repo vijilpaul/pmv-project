@@ -6,13 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.message.ResponseMessage;
 import com.example.demo.model.Vehicles;
 import com.example.demo.payload.CarResponse;
+import com.example.demo.payload.TicketResponse;
 import com.example.demo.repository.VehiclesRepository;
 
 @Service
@@ -70,7 +69,7 @@ public class VehicleServices {
 	    return ResponseEntity.ok(new ResponseMessage("Ticket Updated successfully!"));
 	}
 	
-	public ArrayList<Object> allTicket() {
+	public ArrayList<Object> allNotificationList() {
 		List<Vehicles> vehicleList = vsRepository.findAll();
 		ArrayList<Object> newList = new ArrayList<Object>();
 		for (Vehicles item : vehicleList) {
@@ -81,7 +80,7 @@ public class VehicleServices {
 		return newList;
 	}
 	
-	public int allTicketCount() {
+	public int allNotificationCount() {
 		List<Vehicles> vehicleList = vsRepository.findAll();
 		ArrayList<Object> newList = new ArrayList<Object>();
 		for (Vehicles item : vehicleList) {
@@ -91,5 +90,26 @@ public class VehicleServices {
 		}
 		return newList.size();
 	}
+	
+	public ArrayList<Object> allTickets() {
+		List<Vehicles> vehicleList = vsRepository.findAll();
+		ArrayList<Object> newList = new ArrayList<Object>();
+		for (Vehicles item : vehicleList) {
+			if(item.getServiceCost() != null) {
+				newList.add(new TicketResponse(item.getId(), item.getLastServiceMilage(), item.getLastServiceDate(), item.getServiceDescription(), item.getServiceCost(), item.getServiceEngineerName()));
+			}
+		}
+		return newList;
+	}
 
+	public ArrayList<Object> allCompletedServices() {
+		List<Vehicles> vehicleList = vsRepository.findAll();
+		ArrayList<Object> newList = new ArrayList<Object>();
+		for (Vehicles item : vehicleList) {
+			if(item.getServiceCost() != null) {
+				newList.add(item);
+			}
+		}
+		return newList;
+	}
 }

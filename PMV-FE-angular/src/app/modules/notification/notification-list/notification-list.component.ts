@@ -28,13 +28,13 @@ export class NotificationListComponent {
   ) { }
 
   ngOnInit() {
-    this.service.get('vehicle/tickets').subscribe(data => {
+    this.service.get('vehicle/notification-list').subscribe(data => {
       this.tableData = data
       this.tableData.forEach((el: any) => {
         el.notifyDes = `Next service due date ${el.upcomingServiceDate} for Benz Car, please create new service ticket`
       });
     })
-    this.service.get('vehicle/ticket-count').subscribe(data => {
+    this.service.get('vehicle/notification-count').subscribe(data => {
       localStorage.setItem('notify-count', data)
     })
   }

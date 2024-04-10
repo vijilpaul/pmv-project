@@ -1,5 +1,5 @@
 <div class="w-100 d-block">
-  <h1>Notification list</h1>
+  <h1>Approved Ticket list</h1>
   <app-common-table [actionColumn]="true" [tableColumns]="listColumns" [tableData]="tableData" [isFilterable]="true" [isPageable]="true" [isEdit]="true"
-    [isDelete]="false" [rowActionIcon]="'chevron_right'" [rowActionText]="'Create New Ticket'" (rowAction)="goToCreate($event)"></app-common-table>
+    [isDelete]="false" (rowAction)="goToEdit($event)"></app-common-table>
 </div>

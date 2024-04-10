@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/core/api.service';
 
 @Component({
   selector: 'app-service-history-list',
@@ -49,7 +50,8 @@ export class ServiceHistoryListComponent {
   tableData: any;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private service: ApiService,
   ) {
     if (localStorage.getItem('role') == 'ROLE_DRIVER') {
       this.listColumns = this.driverColumns;
@@ -59,6 +61,9 @@ export class ServiceHistoryListComponent {
   }
 
   ngOnInit() {
+    this.service.get('vehicle/services').subscribe(data => {
+      this.tableData = data;
+    })
     this.tableData = [{ id: 1, carModel: "BMW", lastServiceDate: "03/23/2024", serviceDescription: "Completed all services" }]
   }
 

@@ -75,14 +75,14 @@ public class VehiclesController {
 		return ResponseEntity.ok(response);
 	}
 	
-	@GetMapping("/tickets")
+	@GetMapping("/notification-list")
 	public ArrayList<Object> getAllTickets(){
-	    return vsServices.allTicket();
+	    return vsServices.allNotificationList();
 	}
 	
-	@GetMapping("/ticket-count")
-	public int getAllTicketsCount(){
-	    return vsServices.allTicketCount();
+	@GetMapping("/notification-count")
+	public int getAllNotificationCount(){
+	    return vsServices.allNotificationCount();
 	}
 	
 	@PatchMapping("/ticket/{id}")
@@ -90,5 +90,18 @@ public class VehiclesController {
 		return vsServices.createTicketWithVehicle(id, ticket);
 	}
 	
+	@GetMapping("/tickets")
+	public ArrayList<Object> getAllTicket(){
+	    return vsServices.allTickets();
+	}
+	@GetMapping("/ticket/{id}")
+	public ResponseEntity<Vehicles> getTicketById(@PathVariable long id){
+		Vehicles vehicles = vsRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Vehicles list not exist with id:"+id));
+		return ResponseEntity.ok(vehicles);
+	}
+	@GetMapping("/services")
+	public ArrayList<Object> getAllCompletedServices(){
+	    return vsServices.allCompletedServices();
+	}
 	
 }
