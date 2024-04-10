@@ -1,39 +1,39 @@
 
-As you requested, I have developed the applications using FE(Angular), BE(Java with Springboot), and DB(Postgresql). 
+As you requested, I have developed the applications using FE(Angular), BE(Java with Springboot), and DB(Postgresql). </br>
 
-DB Configuration as per my code:
-url=jdbc:postgresql://localhost:4201/pmv_db
-username=postgres
-password=admin12345
+DB Configuration as per my code:</br>
+<b>url=jdbc:postgresql://localhost:4201/pmv_db </b> </br>
+<b>username=postgres</b> </br>
+<b>password=admin12345</b> </br>
 
-Please configure before you start the Java application as your localhost DB and username and password
+Please configure before you start the Java application as your localhost DB and username and password.</br>
 
-Angular application run:
-	-ng serve
+Angular application run:</br>
+	-<b>ng serve</b> </br>
 
-Basic authentification is added for the user login.
+Basic authentification is added for the user login.</br>
 
-User lists are hardcoded once the application starts with FE and BE.
+User lists are hardcoded once the application starts with FE and BE.</br>
 
 -----------------------------------------------
 
-Credential:
+<b>Credential:</b></br>
 
-Administrator:
-	username: admin
-	password: admin
+<b>Administrator:</b></br>
+	username: admin</br>
+	password: admin</br>
      
-Engineer:
-	username: engineer
-	password: engineer
+<b>Engineer:</b></br>
+	username: engineer</br>
+	password: engineer</br>
 
-Driver:
-	username: driver
-	password: driver
+<b>Driver:</b></br>
+	username: driver</br>
+	password: driver</br>
 	
-Manager:
-	username: manager
-	password: manager
+<b>Manager:</b></br>
+	username: manager</br>
+	password: manager</br>
 
 --------------------------------------------
 
